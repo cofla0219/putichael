@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta property="og:title" content="채림이가 알려주는 신년운세"/>
+<meta property="og:description" content="일단 만들어 본 코딩페이지~"/>
+<meta property="og:image" content="intro.png"/>
+<link rel="shortcut icon" href="https://new-year.spartacodingclub.kr/images/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>채림이가 알려주는 2021년 신년 운세</title>
+
+    <style>
+      body {background-color : ivory;
+            background-image :url('https://new-year.spartacodingclub.kr/images/pattern.png');
+            background-repeat : no-repeat;
+            background-position :-800px 300px; }
+            *{font-family: 'Song Myung', serif;}
+
+      .mytitle{color:darkred;
+              text-align:center}
+      .mytitle > h2 {margin-top: 50px; margin-bottom:-40px;}
+      /*{font-family: 'Noto Sans KR', sans-serif;}*/
+      .mytitle > h1 {font-size : 56px;}
+      .msg {font-family: 'Jua', sans-serif;
+            text-align :center;
+            color : darkred;
+            line-height: 36px;
+            font-size: 22px;
+            font-weight : 100;
+            display: none;
+            padding-top:26px;
+            padding-bottom: 20px;
+
+    }
+      .rtan {
+                    width : 150px;
+                    height: 150px;
+                    border: solid 3px darkred;
+                    border-radius: 200px;
+                    margin : 20px;
+                    box-shadow: 1px 1px 8px 0px darkred;
+
+                    background-color: white;
+                    background-size : cover;
+                    background-position: center
+                    display : flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    flex-wrap : wrap;
+                    margin: auto;
+                    padding: 50px;
+      }
+
+      .btns{
+        display : flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap : wrap;
+      }
+      .btn-back{ width : 150px;
+                height : 50px;
+                color: darkred;
+                background-color : white;
+                border : 2px solid darkred;
+                border-radius : 100px;
+                font-family: 'Jua', sans-serif;
+                font-size : 20px;
+                   cursor: pointer;
+      }
+      .btn-share{ width : 150px;
+                  height : 50px;
+                  color: white;
+                  background-color : darkred;
+                  border : 2px solid darkred;
+                  border-radius : 100px;
+                  font-family: 'Jua', sans-serif;
+                  font-size : 20px;
+                  margin-left :10px;
+                     cursor: pointer;
+      }
+
+      @media screen and (max-width : 780px) {
+        body{
+              background-position : -600px 180px;
+              background-size : 1200px;
+            }
+            .rtan{
+              margin-top : 50px;
+            }
+
+            .msg {font-family: 'Jua', sans-serif;
+                  text-align :center;
+                  color : darkred;
+                  line-height: 36px;
+                  font-size: 22px;
+                  font-weight : 100;
+                  padding-top:26px;
+                  padding-bottom: 20px;
+                }
+
+            .msg> br {
+              display : none;
+            }
+       }
+
+    </style>
+
+    <script>
+      function back() {
+        history.go(-1);
+      }
+      function share() {
+        var t = document.createElement("textarea");
+      document.body.appendChild(t);
+      t.value = window.location.href;
+      t.select();
+      document.execCommand('copy');
+      document.body.removeChild(t);
+      alert('복사 완료!')
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){
+    let animals = ['쥐','소','호랑이','토끼','용','뱀','말','양','원숭이','닭','개','돼지'];
+    let year = getParameter('year') == '' ? 1 : getParameter('year');
+    let id = `rtan${year}`;
+    let animal = animals[year-1];
+    document.getElementById(id).style.display = 'block';
+    document.getElementsByClassName('rtan')[0].style.backgroundImage = `url('result${year}.png')`;
+    document.getElementsByTagName('h1')[0].innerHTML = `2021년 ${animal}띠의 운세는!`;
+});
+function getParameter(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+    </script>
+
+    </head>
+  <body>
+    <div class="mytitle">
+      <h2>채림이가 알려주는</h2>
+      <h1>쥐띠의 운세는?</h1>
+    </div>
+
+    <div class="rtan">
+    </div>
+
+    <p class="msg" id="rtan1" aria-label="쥐띠">
+        세상에서 가장 귀여운 쥐는 미키마우스<br/>
+        근데 미키마우스 다리 샤프심이야<br/>
+        부러질것같아서 볼때마다 조마조마.. 올해 쥐띠는 <br/>
+        마음을 알아주는 따뜻한 사람을 만날 것이야!<br/>
+        일이 잘 안 풀리는 것 같아도<br/>
+        연말에는 호탕하게 웃을 수 있을 지어니<br/>
+        너무 걱정하지 말고 하루하루 잘 나아가봐~
+    </p>
+    <p class="msg" id="rtan2" aria-label="소띠">
+        안녕~~ 97 칭구칭긔들이 많이 보겠지?<br/>
+        이거 만드는거 왤케 어렵냐 ㅋㅋ <br/>
+        이틀 밤새서 만들었으니까 감탄해줘
+        짜리무,,, hate coding....<br/>
+        2021 올해도 파이팅하자~!~!<br/>
+        올해 큰 돈이 들어올 것 같은데?<br/>
+        어디든 투자하고 싶은 곳이 있으면<br/>
+        자신 있게 해봐도 좋을 것 같아!<br/>
+        너무 무리는 하지 말구!
+    </p>
+    <p class="msg" id="rtan3" aria-label="호랑이띠">
+        최강범띠 나는 호랑이가 제일 좋다.<br/>
+        왜냐하면 호랑이는 짱 세기때문이다.<br/>
+        호랭이 최고 대한민국은 호랭이국가!!
+        채림 하트 호랭이 <br/>
+        2021 범띠 운세도 알려줄게 <br/>
+        주변 사람들로부터 많은 도움을 받는<br/>
+        한 해가 되겠구만!<br/>
+        오랜 지인들에게 미리 연락을 해보는 건 어떨까?<br/>
+        지금 전화기를 들어봐!
+    </p>
+    <p class="msg" id="rtan4" aria-label="토끼띠">
+        내가 토끼로 이모티콘 만들어서 <br/>
+        과제로 제출했는데 C받음<br/>
+        그리고 그 토끼가 이 토끼임 <br/>
+        ㅎ,ㅎ 2021년 토끼띠 운세는!! <br/>
+        취업운이 특히 좋은 한 해야!<br/>
+        승진, 이직, 취직 모두 다 잘 되겠는 걸?<br/>
+        꼭 하고 싶은 일이 있었으면<br/>
+        주저 말고 도전해봐!
+    </p>
+    <p class="msg" id="rtan5" aria-label="용띠">
+       용띠로 2행시 지어 보겠습니다.<br/>
+        용이 <br/>
+        띠용 <br/>
+        하하하 <br/>
+        가까운 친구나 가족에게 좋은 일이 생기는 한 해구만!<br/>
+        컨디션도 좋고 준비하는 일 모두 좋은 결과를 얻을거야~<br/>
+        망설이지 말고!<br/>
+        앞으로 나아가봐~!
+    </p>
+    <p class="msg" id="rtan6" aria-label="뱀띠">
+        봄날에 선선하게 부는 바람처럼<br/>
+        올해는 무난~하게 지나가겠어!<br/>
+        너무 조바심 갖지 말고, 마음 편안히 먹고<br/>
+        한 걸음 한 걸음 나아가자!
+    </p>
+    <p class="msg" id="rtan7" aria-label="말띠">
+        긍정적인 마음으로 천천히 일을 추진해봐!<br/>
+        어려울 땐, 주변의 도움을 받아보는 것도 좋겠어~<br/>
+        하루하루 성실히 보내다보면,<br/>
+        반드시 바라던 일이 이루어질거야!
+    </p>
+    <p class="msg" id="rtan8" aria-label="양띠">
+        모처럼 컨디션이 최상인 해!<br/>
+        새해 다짐으로 운동을 시작하면 어떨까?<br/>
+        달리기, 헬스트레이닝, 요가 .. 뭐든 좋아!<br/>
+        기분 좋고 에너지 넘칠 일만 있을거야!
+    </p>
+    <p class="msg" id="rtan9" aria-label="원숭이띠">
+        미래에 대한 고민이 많은 해가 될거야!<br/>
+        자기계발도 틈틈히 잊지말고,<br/>
+        기회가 왔을 땐 주저말고 잡도록해!<br/>
+        또 어떤 재밌는 인생이 펼쳐질지 모르니까!
+    </p>
+    <p class="msg" id="rtan10" aria-label="닭띠">
+        고생 끝에 낙이 온다라는 말,<br/>
+        올해를 두고 하는 얘기일까?<br/>
+        오랫동안 준비해온 일이 있다면<br/>
+        드디어 결실을 맺는 한 해가 될거야!
+    </p>
+    <p class="msg" id="rtan11" aria-label="개띠">
+        우리 아파트 인테리어 상가에서<br/>
+        말티즈를 키우는 가게가 있는데<br/>
+        그 집 말티즈가 나 좋아함 ㅎㅎ<br/>
+        올해 분위기가 심상치 않아.<br/>
+        좋은 것만 먹고, 운동도 좀 더 하고!<br/>
+        건강에 특히 신경 쓰는 한 해가 되도록 해!
+    </p>
+    <p class="msg" id="rtan12" aria-label="돼지띠">
+        새로운 인연을 아주 많이 만나는 해가 될 것 같은데?<br/>
+        그 중에 평생 도움 받을 귀인이 있으니,<br/>
+        만나는 모든 사람들에게 친절하고,<br/>
+        따뜻하게 다가가봐!
+    </p>
+
+      <div class="btns">
+        <button class="btn-back" onclick="back();" > 뒤로가기 </button>
+        <button class="btn-share" onclick="share();"> 공유하기 </button>
+      </div>
+
+
+   </body>
+</html>
